@@ -20,6 +20,8 @@ String NewSemSec="6B";
 
     }
     static void modifyEntry(String editTrem,String NewUsn,String newName,String newSemSec) throws IOException {
+//        https://www.youtube.com/watch?v=TpyRKom0X_s
+
     String trmpfile="temp.txt";
         File oldFile=new File("gendwndata.txt");
         File newFile=new File("temp.txt");
