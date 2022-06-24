@@ -1,0 +1,21 @@
+name|phone|email|address|postalZip|country
+Iola Crawford   7726944185|ac@icloud.ca|Ap #627-3307 Nec, Street|255483|Mexico
+Anika Santiago|0022717592|mauris.nulla.integer@icloud.net|Ap #303-6535 Eu Road|41176|Colombia
+Christian Watkins|1072634372|bibendum.sed@aol.net|587-7384 Praesent Av.|1018-9568|United Kingdom
+Urielle Strong|4018347823|at@outlook.couk|Ap #762-8543 Sed St.|3677|Spain
+Marny George|2161767474|integer.id@yahoo.ca|Ap #113-8488 Metus Rd.|1203|South Africa
+Olivia Faulkner|6206052331|vitae.nibh@aol.edu|127-8700 Elementum, St.|2115|China
+Xavier Reese|6801346773|quam.pellentesque@icloud.net|Ap #526-2420 Venenatis Avenue|64151|China
+Shelly Harmon|2470131284|luctus@hotmail.edu|Ap #830-3123 Lorem St.|65-517|Ukraine
+Scarlett Duke|0775535298|dapibus.quam@outlook.net|351-4198 Nonummy Ave|37370-87914|Canada
+Ivana Andrews|8478357394|magna.ut@aol.ca|8683 Felis. Road|345651|Costa Rica
+Adrian Jimenez|5967950352|augue.scelerisque.mollis@icloud.couk|375-2519 Netus Avenue|48384|Singapore
+Gannon Barber|3775867745|sit.amet@icloud.ca|Ap #405-1097 Nibh Rd.|482127|Singapore
+Wesley Page|5042240743|cum@aol.org|219-3905 Mattis Street|65878-887|Ukraine
+Dolan Sampson|3605570806|odio.phasellus@icloud.couk|431-3348 Donec St.|60726|Russian Federation
+Piper Huffman|2074144466|curae.phasellus@icloud.couk|140-2340 Mattis Ave|203737|Nigeria
+Harriet Delacruz|9746460878|elit.pellentesque@protonmail.couk|817-1109 Porttitor St.|92431|Nigeria
+Hayes Goodwin|2538852718|massa.quisque@aol.edu|5681 Vitae Road|42-38|Belgium
+Lee Richards|4249652485|tellus.non@icloud.org|8909 Nam Rd.|99619|Turkey
+Celeste Mcneil|6853473884|nec@icloud.org|P.O. Box 186, 5806 Congue Rd.|66144|China
+Jana Romero|3157705881|diam.eu.dolor@yahoo.com|8226 Nunc St.|7403|Chile
