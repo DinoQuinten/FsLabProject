@@ -36,7 +36,7 @@ public class usingReader {static BinaryTree tree=new BinaryTree();
 
 
         //returning 1 in the beggning
-        System.out.println(tree.findNode(1002));
+//        System.out.println(tree.findNode(1002));
         String entryOne="1001|1hk19is015|Prasanna Anthony|ISE|6A";
         String entryTwo="1002|1hk19is016| Anthony|ISE4|6A";
         String entry3="1011|1hk19is017| Any|ISE4|65";
@@ -47,7 +47,7 @@ public class usingReader {static BinaryTree tree=new BinaryTree();
         writeData(entryTwo);
         writeData(entry3);
 //        readData();
-        searchRecord(1011);
+        searchRecord(1001);
     }
 
     static void readData() throws IOException {
@@ -111,8 +111,20 @@ public class usingReader {static BinaryTree tree=new BinaryTree();
 //        newFile.renameTo(dump);
 
     }
-    static void searchRecord(int roomNo){
-        printLine(tree.findNode(roomNo)+"");
+
+    static void searchRecord(int roomNo) throws IOException {
+        if (tree.findNode(roomNo) == -1) {
+            printLine("Room Does not Exists");
+        } else {
+            FileReader fileReader = new FileReader("randText.txt");
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+            for (int i = 0; i < tree.findNode(roomNo) - 1; i++) {
+                bufferedReader.readLine();
+            }
+            printLine(bufferedReader.readLine());
+            bufferedReader.close();
+        }
     }
 
     static void printLine(String s) {
@@ -246,7 +258,7 @@ public class usingReader {static BinaryTree tree=new BinaryTree();
 
         }
 
-        public Object findNode(int key) {
+        public int findNode(int key) {
 
             // Start at the top of the tree
 
@@ -276,7 +288,7 @@ public class usingReader {static BinaryTree tree=new BinaryTree();
                 // The node wasn't found
 
                 if (focusNode == null)
-                    return null;
+                    return -1;
 
             }
 
