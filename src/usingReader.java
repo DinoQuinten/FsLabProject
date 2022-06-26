@@ -10,23 +10,8 @@ public class usingReader {static BinaryTree tree=new BinaryTree();
         String NewSemSec = "6B";
 //        readData();
 
-        modifyEntry(NewSemSec, usn, name, SemSec);
 
         tree.addNode(1001,0);
-//        for (int i = 1000; i < 5000; i=i+1000) {
-//            for(int j=1;j<10;j++){
-//                int k=(j*10);
-//            int roomNo=i+k;
-//            if (t){
-//                roomNo+=1;
-//                t=false;
-//            }
-//            else {
-//                roomNo+=2;
-//                t=true;
-//            }
-//            printLine(roomNo+" ");}
-//        }
         tree.addNode(1002,1);
         tree.addNode(1011,2);
         tree.addNode(1012,3);
@@ -37,17 +22,21 @@ public class usingReader {static BinaryTree tree=new BinaryTree();
 
         //returning 1 in the beggning
 //        System.out.println(tree.findNode(1002));
-        String entryOne="1001|1hk19is015|Prasanna Anthony|ISE|6A";
-        String entryTwo="1002|1hk19is016| Anthony|ISE4|6A";
-        String entry3="1011|1hk19is017| Any|ISE4|65";
-        FileWriter fileWriter=new FileWriter("randText.txt");
+        String entryOne = "1001|1hk19is015|Prasanna Anthony|ISE|6A";
+        String entryTwo = "1002|1hk19is016| Anthony|ISE4|6A";
+        String entry3 = "1011|1hk19is017| Any|ISE4|65";
+        String entry4 = "1012|1hk19is013| modify|ISE4|65";
+        FileWriter fileWriter = new FileWriter("randText.txt");
+        FileWriter fileWriter1 = new FileWriter("temp.txt");
         fileWriter.flush();
+        fileWriter1.flush();
 
-        writeData(entryOne);
-        writeData(entryTwo);
-        writeData(entry3);
+        writeData(entryOne, "randText.txt");
+        writeData(entryTwo, "randText.txt");
+        writeData(entry3, "randText.txt");
 //        readData();
-        searchRecord(1001);
+        modifyEntry(1011, entry4);
+//        searchRecord(1001);
     }
 
     static void readData() throws IOException {
@@ -56,59 +45,27 @@ public class usingReader {static BinaryTree tree=new BinaryTree();
         System.out.println(bufferedReader.readLine());
     }
 
-    static void writeData(String dataStream) throws IOException {
-        FileWriter fileWriter = new FileWriter("randText.txt",true);
+    static void writeData(String dataStream, String fileName) throws IOException {
+        FileWriter fileWriter = new FileWriter(fileName, true);
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-        bufferedWriter.append(dataStream+"\n");
+        bufferedWriter.append(dataStream + "\n");
         bufferedWriter.close();
     }
 
-    static void modifyEntry(String editTrem, String NewUsn, String newName, String newSemSec) {
-////        https://www.youtube.com/watch?v=TpyRKom0X_s
-//
-//    String trmpfile="temp.txt";
-//        File oldFile=new File("prem1.txt");
-//        File newFile=new File("temp.txt");
-//        String USN="",name="",branch="",semSec="";
-//        FileWriter fw= null;
-//        try {
-//            fw = new FileWriter(trmpfile,true);
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//        BufferedWriter bufferedWriter=new BufferedWriter(fw);
-//        PrintWriter printWriter=new PrintWriter(bufferedWriter);
-////        Scanner scanner=new Scanner(new File("prem1.txt"));
-//
-//        BufferedReader bufferedReader = null;
-//        try {
-//            bufferedReader = new BufferedReader(new FileReader(oldFile));
-//        } catch (FileNotFoundException e) {
-//            System.out.println("file not found");
-//            throw new RuntimeException(e);
-//        }
-//        Scanner scanner = null;
-//        try {
-//            scanner = new Scanner(bufferedReader.readLine());
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//        scanner.useDelimiter("\\\\Q|\\\\E");
-//        while(scanner.hasNext()){
-//            USN=scanner.next();
-//            name=scanner.next();
-//            semSec=scanner.next();
-//            if(USN.equals(editTrem)){
-//                printWriter.println(NewUsn+"|"+newName+"|"+newSemSec);
-//            }
-//            else
-//                printWriter.println(USN+"|"+name+"|"+semSec);
-//        }
-//        scanner.close();
-//        printWriter.flush();
-//        oldFile.delete();
-//        File dump= new File("prem1.txt");
-//        newFile.renameTo(dump);
+    static void modifyEntry(int roomNo, String recordToBeEdited) throws IOException {
+
+        BufferedReader bufferedReader = new BufferedReader(new FileReader("randText.txt"));
+        String preFixData = "";
+        System.out.println(tree.findNode(roomNo));
+        for (int i = 0; i < 4; i++) {
+            if (tree.findNode(roomNo) == i) {
+                preFixData += recordToBeEdited + "\n";
+            } else {
+                preFixData += bufferedReader.readLine() + "\n";
+            }
+        }
+        System.out.println(preFixData);
+        writeData(preFixData, "temp.txt");
 
     }
 
@@ -297,17 +254,17 @@ public class usingReader {static BinaryTree tree=new BinaryTree();
         }
 
 
-    class Node {
+        static class Node {
 
-        int key;
-        int name;
+            int key;
+            int name;
 
-        Node leftChild;
-        Node rightChild;
+            Node leftChild;
+            Node rightChild;
 
-        Node(int key, int name) {
+            Node(int key, int name) {
 
-            this.key = key;
+                this.key = key;
             this.name = name;
 
         }
