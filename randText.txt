@@ -1,3 +1,6 @@
 1001#	1hk19is015#	Prasanna Anthony#	ISE#	6A
 1002#	1hk19is016#	Anthony#	ISE4#	6A
 1011	1hk19is017#	Any#	ISE4#	65
+33#			33	#		33	#		33	#	33semsec
+44#		usn44#		44	#		44	#	4sem
+

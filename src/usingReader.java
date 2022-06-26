@@ -1,4 +1,7 @@
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -17,7 +20,7 @@ public class usingReader {
         tree.addNode(1001, 0);
         tree.addNode(1002, 1);
         tree.addNode(1011, 2);
-//        tree.addNode(1012,3);
+        tree.addNode(1012, 3);
 //        tree.addNode(1021,4);
 //        tree.addNode(1022,5);
 //        tree.inOrderTraverseTree(tree.root);
@@ -41,7 +44,8 @@ public class usingReader {
         writeData(entry3, "randText.txt");
         while (true) {
             printLine("#\t--\t--\t--\t--\t--\t--\t--\t#");
-            printLine("#\tenter your choice\t\t\t#\n#\t(A)dd record\t\t\t\t#\n" +
+            printLine("#\t***ENTER THE CHOICE***\t\t#\n#\t(A)dd record\t\t\t\t#" +
+                    "\n#\t(P)rint database\t\t\t#\n" +
                     "#\t(S)earch record by room no\t#\n" +
                     "#\t(M)odify record\t\t\t\t#\n#\t(D)elete record\t\t\t\t#");
             printLine("#\t--\t--\t--\t--\t--\t--\t--\t#");
@@ -74,29 +78,29 @@ public class usingReader {
                             String semsec = modScanner.next();
 
                             printLine("enter the field u want to update" +
-                                    "\n1. usn\t2.name\n3.branch\t4.semsec");
-                            int co = S.nextInt();
-                            switch (co) {
-                                case 1 -> {
+                                    "\n(U)sn\n(N)ame\n(B)ranch\t(S)emsec");
+                            String co = S.next();
+                            switch (co.toLowerCase(Locale.ROOT).charAt(0)) {
+                                case 'u' -> {
                                     printLine("enter the modified usn");
                                     usn1 = S.next();
                                     updatedEntrty = roomNo1 + "#\t" + usn1 + "#\t" + Name + "#\t" + branch1 + "#\t" + semsec;
                                     break;
                                 }
-                                case 2 -> {
+                                case 'n' -> {
                                     printLine("enter the modified name");
                                     Name = S.next();
                                     updatedEntrty = roomNo1 + "#\t" + usn1 + "#\t" + Name + "#\t" + branch1 + "#\t" + semsec;
                                     printLine("updated Entry is\n" + updatedEntrty);
                                     break;
                                 }
-                                case 3 -> {
+                                case 'b' -> {
                                     printLine("enter the modified branch");
                                     branch1 = S.next();
                                     updatedEntrty = roomNo1 + "#\t" + usn1 + "#\t" + Name + "#\t" + branch1 + "#\t" + semsec;
                                     break;
                                 }
-                                case 4 -> {
+                                case 's' -> {
                                     printLine("enter the new name");
                                     semsec = S.next();
                                     updatedEntrty = roomNo1 + "#\t" + usn1 + "#\t" + Name + "#\t" + branch1 + "#\t" + semsec;
@@ -108,7 +112,7 @@ public class usingReader {
                                 }
 
                             }
-                            modifyEntry(i, updatedEntrty);
+                            modifyEntry(i, updatedEntrty + "\n");
                         } catch (Exception e) {
                             printLine("");
                         }
@@ -131,6 +135,9 @@ public class usingReader {
                     lineNumber++;
                     tree.addNode(roomNo1, lineNumber);
                 }
+                case 'p' -> {
+                    readData();
+                }
                 default ->
                         throw new IllegalStateException("Unexpected value: " + choice.toLowerCase(Locale.ROOT).charAt(0));
             }
@@ -140,7 +147,7 @@ public class usingReader {
     static void readData() throws IOException {
         FileReader fileReader = new FileReader("randText.txt");
         BufferedReader bufferedReader = new BufferedReader(fileReader);
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i <= lineNumber; i++) {
 
             System.out.println(bufferedReader.readLine());
         }
@@ -162,7 +169,7 @@ public class usingReader {
 //        System.out.println(tree.findNode(roomNo));
         for (int i = 0; i <= lineNumber; i++) {
             if (tree.findNode(roomNo) == i) {
-                preFixData += recordToBeEdited + "\n";
+                preFixData += recordToBeEdited;
                 printLine(preFixData);
                 String drop = bufferedReader.readLine();
             } else {
@@ -170,8 +177,13 @@ public class usingReader {
                 preFixData += bufferedReader.readLine() + "\n";
             }
         }
+        bufferedReader.close();
 //        System.out.println(preFixData);
         writeData(preFixData, "temp.txt");
+        copyFile();
+        FileWriter fileWriter1 = new FileWriter("temp.txt");
+        fileWriter1.flush();
+
 
     }
 
@@ -405,5 +417,7 @@ public class usingReader {
         }
     }
 
-    
+    public static void copyFile() throws IOException {
+        Files.copy(Path.of("temp.txt"), Path.of("randText.txt"), StandardCopyOption.REPLACE_EXISTING);
+    }
 }
