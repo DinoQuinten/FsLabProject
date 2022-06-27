@@ -211,7 +211,24 @@ public class usingReader {
         System.out.println(s12);
     }
 
+    public static void copyFile() throws IOException {
+        Files.copy(Path.of("temp.txt"), Path.of("randText.txt"), StandardCopyOption.REPLACE_EXISTING);
+    }
 
+    public static class stdentDetails {
+
+        String Usn, Name, Branch, SemSec;
+
+        public stdentDetails(String usn, String name, String branch, String semsec) {
+            Usn = usn;
+            Name = name;
+            Branch = branch;
+            SemSec = semsec;
+        }
+
+    }
+
+    //https://www.newthinktank.com/2013/03/binary-tree-in-java/
     public static class BinaryTree {
 
         Node root;
@@ -388,36 +405,21 @@ public class usingReader {
             Node(int key, int name) {
 
                 this.key = key;
-            this.name = name;
+                this.name = name;
+
+            }
+
+            public String toString() {
+
+                return name + " has the key " + key;
+
+                /*
+                 * return name + " has the key " + key + "\nLeft Child: " + leftChild +
+                 * "\nRight Child: " + rightChild + "\n";
+                 */
+
+            }
 
         }
-
-        public String toString() {
-
-            return name + " has the key " + key;
-
-            /*
-             * return name + " has the key " + key + "\nLeft Child: " + leftChild +
-             * "\nRight Child: " + rightChild + "\n";
-             */
-
-        }
-
-        }
-    }
-
-    public static class stdentDetails {
-        String Usn, Name, Branch, SemSec;
-
-        public stdentDetails(String usn, String name, String branch, String semsec) {
-            Usn = usn;
-            Name = name;
-            Branch = branch;
-            SemSec = semsec;
-        }
-    }
-
-    public static void copyFile() throws IOException {
-        Files.copy(Path.of("temp.txt"), Path.of("randText.txt"), StandardCopyOption.REPLACE_EXISTING);
     }
 }

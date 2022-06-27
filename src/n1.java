@@ -1,4 +1,6 @@
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class n1 {
@@ -18,8 +20,8 @@ public class n1 {
 //        bufferedWriter.close();
 
 
-//        BufferedReader bufferedReader = new BufferedReader(new FileReader("updatingData.txt"));
-//        Scanner scanner = new Scanner(bufferedReader.readLine());
+        BufferedReader bufferedReader = new BufferedReader(new FileReader("updatingData.txt"));
+        Scanner scanner = new Scanner(bufferedReader.readLine());
 //        scanner.useDelimiter("\n");
 //        String newLinew = "";
 //        while ((newLinew = bufferedReader.readLine()) != null) {
