@@ -25,7 +25,7 @@ public class usingReader {
 //        tree.addNode(1022,5);
 //        tree.inOrderTraverseTree(tree.root);
 
-
+if (true) printLine("running");
         //returning 1 in the beggning
 //        System.out.println(tree.findNode(1002));
         String entryOne = "1001#\t1hk19is015#\tPrasanna Anthony#\tISE#\t6A";
