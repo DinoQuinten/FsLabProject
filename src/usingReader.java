@@ -30,7 +30,7 @@ public class usingReader {
 //        System.out.println(tree.findNode(1002));
         String entryOne = "1001#\t1hk19is015#\tPrasanna Anthony#\tISE#\t6A";
         String entryTwo = "1002#\t1hk19is016#\tAnthony#\tISE4#\t6A";
-        String entry3 = "1011\t1hk19is017#\tAny#\tISE4#\t65";
+        String entry3 = "1011#\t1hk19is017#\tAny#\tISE4#\t65";
         String entry4 = "1012#1hk19is013# modify#ISE4#65";
         Scanner S = new Scanner(System.in);
         String choice;
@@ -141,6 +141,7 @@ public class usingReader {
                         printLine("enter the SemSec");
                         String semSec1 = S.next();
                         String dataToBeEntered = roomNo1 + "#\t" + usn1 + "\t#" + Name1 + "\t#" + branch1 + "\t#" + semSec1;
+                        printLine(dataToBeEntered);
                         writeData(dataToBeEntered, "randText.txt");
                         lineNumber++;
                         tree.addNode(roomNo1, lineNumber);
