@@ -20,7 +20,7 @@ public class usingReader {
         tree.addNode(1001, 0);
         tree.addNode(1002, 1);
         tree.addNode(1011, 2);
-        tree.addNode(1012, 3);
+//        tree.addNode(1012, 3);
 //        tree.addNode(1021,4);
 //        tree.addNode(1022,5);
 //        tree.inOrderTraverseTree(tree.root);
@@ -42,105 +42,118 @@ public class usingReader {
         writeData(entryOne, "randText.txt");
         writeData(entryTwo, "randText.txt");
         writeData(entry3, "randText.txt");
-        while (true) {
-            printLine("#\t--\t--\t--\t--\t--\t--\t--\t#");
-            printLine("#\t***ENTER THE CHOICE***\t\t#\n#\t(A)dd record\t\t\t\t#" +
-                    "\n#\t(P)rint database\t\t\t#\n" +
-                    "#\t(S)earch record by room no\t#\n" +
-                    "#\t(M)odify record\t\t\t\t#\n#\t(D)elete record\t\t\t\t#");
-            printLine("#\t--\t--\t--\t--\t--\t--\t--\t#");
+        printLine("enter the login Password");
+        if (S.nextInt() == 1234) {
+            while (true) {
+                printLine("#\t--\t--\t--\t--\t--\t--\t--\t#");
+                printLine("#\t***ENTER THE CHOICE***\t\t#\n#\t(A)dd record\t\t\t\t#" +
+                        "\n#\t(P)rint database\t\t\t#\n" +
+                        "#\t(S)earch record by room no\t#\n" +
+                        "#\t(M)odify record\t\t\t\t#\n#\tto delete record use modify\t\t\t\t#");
+                printLine("#\t--\t--\t--\t--\t--\t--\t--\t#");
 
-            choice = S.next();
-            switch (choice.toLowerCase(Locale.ROOT).charAt(0)) {
-                case 's' -> {
-                    printLine("#\t--\t--\t--\tSearch Record\t--\t--\t--\t#");
-                    printLine("enter the Room no to search file");
-                    int i = S.nextInt();
-                    searchRecord(i);
-                    break;
-                }
-                case 'm' -> {
-                    printLine("#\t--\t--\t--\tModify Record\t--\t--\t--\t#");
-                    UsingSeekInJava.printLine("enter record to be modified");
-                    int i = S.nextInt();
-                    printLine(searchRecord(i));
-                    String useDElimiterOn = searchRecord(i);
-                    {
-                        String updatedEntrty = "";
+                choice = S.next();
+                switch (choice.toLowerCase(Locale.ROOT).charAt(0)) {
+                    case 's' -> {
+                        printLine("#\t--\t--\t--\tSearch Record\t--\t--\t--\t#");
+                        printLine("enter the Room no to search file");
+                        int i = S.nextInt();
+                        searchRecord(i);
+                        break;
+                    }
+                    case 'm' -> {
+                        printLine("#\t--\t--\t--\tModify Record\t--\t--\t--\t#");
+                        UsingSeekInJava.printLine("enter record to be modified");
+                        int i = S.nextInt();
+//                    printLine(searchRecord(i));
+                        String useDElimiterOn = searchRecord(i);
+                        {
+                            String updatedEntrty = "";
 
 
-                        try {
-                            Scanner modScanner = new Scanner(useDElimiterOn).useDelimiter("#");
-                            String roomNo1 = modScanner.next();
-                            String usn1 = modScanner.next();
-                            String Name = modScanner.next();
-                            String branch1 = modScanner.next();
-                            String semsec = modScanner.next();
+                            try {
+                                Scanner modScanner = new Scanner(useDElimiterOn).useDelimiter("#");
+                                String roomNo1 = modScanner.next();
+                                String usn1 = modScanner.next();
+                                String Name = modScanner.next();
+                                String branch1 = modScanner.next();
+                                String semsec = modScanner.next();
 
-                            printLine("enter the field u want to update" +
-                                    "\n(U)sn\n(N)ame\n(B)ranch\t(S)emsec");
-                            String co = S.next();
-                            switch (co.toLowerCase(Locale.ROOT).charAt(0)) {
-                                case 'u' -> {
-                                    printLine("enter the modified usn");
-                                    usn1 = S.next();
-                                    updatedEntrty = roomNo1 + "#\t" + usn1 + "#\t" + Name + "#\t" + branch1 + "#\t" + semsec;
-                                    break;
-                                }
-                                case 'n' -> {
-                                    printLine("enter the modified name");
-                                    Name = S.next();
-                                    updatedEntrty = roomNo1 + "#\t" + usn1 + "#\t" + Name + "#\t" + branch1 + "#\t" + semsec;
-                                    printLine("updated Entry is\n" + updatedEntrty);
-                                    break;
-                                }
-                                case 'b' -> {
-                                    printLine("enter the modified branch");
-                                    branch1 = S.next();
-                                    updatedEntrty = roomNo1 + "#\t" + usn1 + "#\t" + Name + "#\t" + branch1 + "#\t" + semsec;
-                                    break;
-                                }
-                                case 's' -> {
-                                    printLine("enter the new name");
-                                    semsec = S.next();
-                                    updatedEntrty = roomNo1 + "#\t" + usn1 + "#\t" + Name + "#\t" + branch1 + "#\t" + semsec;
-                                    break;
-                                }
-                                default -> {
-                                    printLine("worng choice");
-                                    break;
-                                }
+                                printLine("enter the field u want to update" +
+                                        "\n(D)elete removed occupied bed" + "\n(U)sn\n(N)ame\n(B)ranch\t(S)emsec");
+                                String co = S.next();
+                                switch (co.toLowerCase(Locale.ROOT).charAt(0)) {
 
+                                    case 'd' -> {
+                                        printLine("the bed no to be deleted");
+                                        String str = "the bed is empty####";
+                                        updatedEntrty = roomNo1 + "#\t" + str;
+                                        break;
+                                    }
+
+                                    case 'u' -> {
+                                        printLine("enter the modified usn");
+                                        usn1 = S.next();
+                                        updatedEntrty = roomNo1 + "#\t" + usn1 + "#\t" + Name + "#\t" + branch1 + "#\t" + semsec;
+                                        break;
+                                    }
+                                    case 'n' -> {
+                                        printLine("enter the modified name");
+                                        Name = S.next();
+                                        updatedEntrty = roomNo1 + "#\t" + usn1 + "#\t" + Name + "#\t" + branch1 + "#\t" + semsec;
+                                        printLine("updated Entry is\n" + updatedEntrty);
+                                        break;
+                                    }
+                                    case 'b' -> {
+                                        printLine("enter the modified branch");
+                                        branch1 = S.next();
+                                        updatedEntrty = roomNo1 + "#\t" + usn1 + "#\t" + Name + "#\t" + branch1 + "#\t" + semsec;
+                                        break;
+                                    }
+                                    case 's' -> {
+                                        printLine("enter the new name");
+                                        semsec = S.next();
+                                        updatedEntrty = roomNo1 + "#\t" + usn1 + "#\t" + Name + "#\t" + branch1 + "#\t" + semsec;
+                                        break;
+                                    }
+                                    default -> {
+                                        printLine("worng choice");
+                                        break;
+                                    }
+
+                                }
+                                modifyEntry(i, updatedEntrty + "\n");
+                            } catch (Exception e) {
+                                printLine("");
                             }
-                            modifyEntry(i, updatedEntrty + "\n");
-                        } catch (Exception e) {
-                            printLine("");
                         }
                     }
+                    case 'a' -> {
+                        printLine("#\t--\t--\t--\tadd new record\t--\t--\t--\t#");
+                        printLine("Enter Room N");
+                        int roomNo1 = S.nextInt();
+                        printLine("enter the usn no");
+                        String usn1 = S.next();
+                        printLine("enter the Name");
+                        String Name1 = S.next();
+                        printLine("enter the Branch");
+                        String branch1 = S.next();
+                        printLine("enter the SemSec");
+                        String semSec1 = S.next();
+                        String dataToBeEntered = roomNo1 + "#\t" + usn1 + "\t#" + Name1 + "\t#" + branch1 + "\t#" + semSec1;
+                        writeData(dataToBeEntered, "randText.txt");
+                        lineNumber++;
+                        tree.addNode(roomNo1, lineNumber);
+                    }
+                    case 'p' -> {
+                        readData();
+                    }
+                    default ->
+                            throw new IllegalStateException("Unexpected value: " + choice.toLowerCase(Locale.ROOT).charAt(0));
                 }
-                case 'a' -> {
-                    printLine("#\t--\t--\t--\tadd new record\t--\t--\t--\t#");
-                    printLine("Enter Room N");
-                    int roomNo1 = S.nextInt();
-                    printLine("enter the usn no");
-                    String usn1 = S.next();
-                    printLine("enter the Name");
-                    String Name1 = S.next();
-                    printLine("enter the Branch");
-                    String branch1 = S.next();
-                    printLine("enter the SemSec");
-                    String semSec1 = S.next();
-                    String dataToBeEntered = roomNo1 + "#\t" + usn1 + "\t#" + Name1 + "\t#" + branch1 + "\t#" + semSec1;
-                    writeData(dataToBeEntered, "randText.txt");
-                    lineNumber++;
-                    tree.addNode(roomNo1, lineNumber);
-                }
-                case 'p' -> {
-                    readData();
-                }
-                default ->
-                        throw new IllegalStateException("Unexpected value: " + choice.toLowerCase(Locale.ROOT).charAt(0));
             }
+        } else {
+            printLine("wrong password\nProgram exited");
         }
     }
 
@@ -173,7 +186,7 @@ public class usingReader {
                 printLine(preFixData);
                 String drop = bufferedReader.readLine();
             } else {
-                printLine(preFixData);
+//                printLine(preFixData);
                 preFixData += bufferedReader.readLine() + "\n";
             }
         }

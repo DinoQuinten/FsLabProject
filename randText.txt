@@ -1,6 +1,6 @@
 1001#	1hk19is015#	Prasanna Anthony#	ISE#	6A
 1002#	1hk19is016#	Anthony#	ISE4#	6A
 1011	1hk19is017#	Any#	ISE4#	65
-2001#		hk2001	#	nm2001	#	2001br#	ss2001
-2002#		2002	#	nm2002	#	br2002	#	2001se
+12#	12#		name12#		#		
+21#		21	#	name#	21	#	21
 
